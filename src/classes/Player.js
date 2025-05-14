@@ -4,12 +4,13 @@ import {
   INITIAL_FRAMES,
   PATH_SPACESHIP_IMAGE,
 } from '../utils/constants.js'
+import Projectile from './Projectiles.js'
 
 class Player {
   constructor(canvasWidth, canvasHeight) {
-    this.width = 48 * 7
-    this.height = 48 * 7
-    this.velocity = 8
+    this.width = 48 * 2
+    this.height = 48 * 2
+    this.velocity = 10
 
     this.position = {
       x: canvasWidth / 2 - this.width / 2,
@@ -74,6 +75,18 @@ class Player {
       this.framesCounter = INITIAL_FRAMES
     }
     this.framesCounter--
+  }
+
+  shoot(projectiles) {
+    const p = new Projectile(
+      {
+        x: this.position.x + this.width / 2 - 1,
+        y: this.position.y,
+      },
+      -5,
+    )
+
+    projectiles.push(p)
   }
 }
 

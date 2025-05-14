@@ -14,7 +14,6 @@ export default defineConfig([
       'no-unreachable': 'error', // código depois de return, throw etc.
       'no-unused-expressions': 'warn', // função que não foi chamada (como falamos antes)
       eqeqeq: ['warn', 'always'], // força uso de === em vez de == (evita comparação estranha)
-      'no-console': 'warn', // avisa uso de console.log (útil pra limpar código antes de subir)
       'no-debugger': 'error',
     },
   },
