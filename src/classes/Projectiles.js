@@ -11,7 +11,7 @@ class Projectile {
   }
 
   update() {
-    this.position.y += this.velocity - 10
+    this.position.y += this.velocity + -5
   }
 }
 

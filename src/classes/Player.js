@@ -8,8 +8,8 @@ import Projectile from './Projectiles.js'
 
 class Player {
   constructor(canvasWidth, canvasHeight) {
-    this.width = 48 * 2
-    this.height = 48 * 2
+    this.width = 48 * 3
+    this.height = 48 * 3
     this.velocity = 10
 
     this.position = {
@@ -54,7 +54,7 @@ class Player {
       48,
       48,
       this.position.x,
-      this.position.y + 16,
+      this.position.y + 10,
       this.width,
       this.height,
     )
