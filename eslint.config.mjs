@@ -8,12 +8,11 @@ export default defineConfig([
     plugins: { js },
     extends: ['js/recommended'],
     rules: {
-      // ✅ Adicionado aqui
-      'no-unused-vars': 'warn', // avisa variáveis que você declarou mas não usa
-      'no-undef': 'error', // avisa quando usa algo que não foi definido
-      'no-unreachable': 'error', // código depois de return, throw etc.
-      'no-unused-expressions': 'warn', // função que não foi chamada (como falamos antes)
-      eqeqeq: ['warn', 'always'], // força uso de === em vez de == (evita comparação estranha)
+      'no-unused-vars': 'warn',
+      'no-undef': 'error',
+      'no-unreachable': 'error',
+      'no-unused-expressions': 'warn',
+      eqeqeq: ['warn', 'always'],
       'no-debugger': 'error',
     },
   },

@@ -63,6 +63,25 @@ canvas {
   animation: zoom 2s ease-in-out forwards;
 }
 
+.score-ui {
+  position: fixed;
+  color: #fff;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1rem;
+  display: none;
+}
+
+.score-ui > div {
+  display: flex;
+  justify-content: space-between;
+  max-width: 600px;
+  margin: 0 auto;
+}
 @keyframes zoom {
   from {
     scale: 0;

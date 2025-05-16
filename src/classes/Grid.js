@@ -19,8 +19,8 @@ class Grid {
       for (let col = 0; col < this.cols; col += 1) {
         const invader = new Invader(
           {
-            x: col * 60 + 30,
-            y: row * 50 + 30,
+            x: col * 60 + 20,
+            y: row * 40 + 120,
           },
           this.invadersVelocity,
         )
