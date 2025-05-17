@@ -155,6 +155,8 @@ const checkShootInvaders = () => {
 }
 
 const checkShootPlayer = () => {
+  if (!player.alive) return // Adicionado aqui: evita múltiplos gameOver()
+
   invadersProjectiles.some((projectile, i) => {
     if (player.enemyHitPlayer(projectile)) {
       soundEffects.playExplosionSound()
@@ -257,9 +259,11 @@ const gameLoop = () => {
     drawParticles()
     drawProjectiles()
 
+    checkShootPlayer()
+
     clearProjectiles()
     clearParticles()
-
+    soundEffects.stopBackgroundMusic()
     grid.draw(ctx)
     grid.update(player.alive)
   }
@@ -289,20 +293,22 @@ addEventListener('keyup', event => {
     keys.shoot.released = true
   }
 })
-
 buttonPlay.addEventListener('click', () => {
   startScreen.remove()
   scoreUi.style.display = 'block'
   currentState = GameState.PLAYING
 
+  soundEffects.playRandomBackgroundMusic()
+
   setInterval(() => {
     const invader = grid.getRandomInvader()
-
     if (invader) {
       invader.shoot(invadersProjectiles)
+      soundEffects.playShootSound()
     }
-  }, 1000)
+  }, 500)
 })
+
 buttonRestart.addEventListener('click', () => {
   currentState = GameState.PLAYING
   player.alive = true
@@ -314,6 +320,7 @@ buttonRestart.addEventListener('click', () => {
 
   gameData.score = 0
   gameData.level = 0
+  soundEffects.playRandomBackgroundMusic()
 
   gameOverScreen.remove()
 })
